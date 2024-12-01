@@ -48,7 +48,19 @@ int main()
         differenceTotale += std::abs(listeDroite[i] - listeGauche[i]);
     }
 
-    std::cout << differenceTotale;
+    std::cout << differenceTotale << '\n';
+
+    long cummulatif{ 0l };
+
+    for (auto elementGauche : listeGauche) {
+        long nombreOccurence{static_cast<long>( std::count(listeDroite.begin(),
+            listeDroite.end(), elementGauche))
+        };
+
+        cummulatif += elementGauche * nombreOccurence;
+    }
+
+    std::cout << cummulatif << '\n';
 
     return 0;
 }
